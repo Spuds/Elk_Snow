@@ -2,7 +2,7 @@
 <!DOCTYPE package-info SYSTEM "http://www.elkarte.net/site/package-info">
 <package-info xmlns="http://www.elkarte.net/site/package-info" xmlns:elk="http://www.elkarte.net/">
 	<id>Spuds:letitsnow</id>
-	<name>No Frills Snow for ElkArte</name>
+	<name>Snow for ElkArte</name>
 	<version>1.0</version>
 	<type>addon</type>
 	<license><![CDATA[
@@ -21,6 +21,7 @@
 		<require-file name="NoFrillsSnow.integration.php" destination="SUBSDIR">Integration hooks</require-file>
 		<require-file name="snowstorm.min.js" destination="THEMEDIR/scripts">The Snow Storm</require-file>
 		<require-file name="NoFrillsSnow.english.php" destination="LANGUAGEDIR/english">The language strings</require-file>
+		<require-file name="NoFrillsSnow.french.php" destination="LANGUAGEDIR/french" />
 		<hook hook="integrate_load_theme" file="SUBSDIR/NoFrillsSnow.integration.php" function="ilt_nofrillssnow" />
 		<hook hook="integrate_admin_areas" file="SUBSDIR/NoFrillsSnow.integration.php" function="iaa_nofrillssnow" />
 		<hook hook="integrate_sa_modify_modifications" file="SUBSDIR/NoFrillsSnow.integration.php" function="imm_nofrillssnow" />
@@ -33,5 +34,8 @@
 		<hook reverse="true" hook="integrate_sa_modify_modifications" file="SUBSDIR/NoFrillsSnow.integration.php" function="imm_nofrillssnow" />
 		<remove-file name="SUBSDIR/NoFrillsSnow.integration.php" />
 		<remove-file name="THEMEDIR/scripts/snowstorm.min.js" />
+		<remove-file name="LANGUAGEDIR/english/NoFrillsSnow.french.php" />
+		<remove-file name="LANGUAGEDIR/french/NoFrillsSnow.english.php" />
+
 	</uninstall>
 </package-info>
