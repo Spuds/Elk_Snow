@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE package-info SYSTEM "http://www.elkarte.net/site/package-info">
+<package-info xmlns="http://www.elkarte.net/site/package-info" xmlns:elk="http://www.elkarte.net/">
+	<id>Spuds:letitsnow</id>
+	<name>No Frills Snow for ElkArte</name>
+	<version>1.0</version>
+	<type>addon</type>
+	<license><![CDATA[
+/**
+ * No Frills Snow for ElkArte
+ *
+ * @license MIT
+ *
+ * @version 1.0
+ */
+]]></license>
+	<install for="1.0 - 1.0.99">
+		<readme parsebbc="true">readme.txt</readme>
+		<database>add_settings.php</database>
+		<license type="inline">This ElkArte addon is released under a MIT license</license>
+		<require-file name="NoFrillsSnow.integration.php" destination="SUBSDIR">Integration hooks</require-file>
+		<require-file name="snowstorm.min.js" destination="THEMEDIR/scripts">The Snow Storm</require-file>
+		<require-file name="NoFrillsSnow.english.php" destination="LANGUAGEDIR/english">The language strings</require-file>
+		<hook hook="integrate_load_theme" file="SUBSDIR/NoFrillsSnow.integration.php" function="ilt_nofrillssnow" />
+		<hook hook="integrate_admin_areas" file="SUBSDIR/NoFrillsSnow.integration.php" function="iaa_nofrillssnow" />
+		<hook hook="integrate_sa_modify_modifications" file="SUBSDIR/NoFrillsSnow.integration.php" function="imm_nofrillssnow" />
+		<redirect url="?action=admin;area=addonsettings;sa=nofrillssnow" timeout="5000" />
+	</install>
+
+	<uninstall for="1.0 - 1.0.99">
+		<hook reverse="true" hook="integrate_load_theme" file="SUBSDIR/NoFrillsSnow.integration.php" function="ilt_nofrillssnow" />
+		<hook reverse="true" hook="integrate_admin_areas" file="SUBSDIR/NoFrillsSnow.integration.php" function="iaa_nofrillssnow" />
+		<hook reverse="true" hook="integrate_sa_modify_modifications" file="SUBSDIR/NoFrillsSnow.integration.php" function="imm_nofrillssnow" />
+		<remove-file name="SUBSDIR/NoFrillsSnow.integration.php" />
+		<remove-file name="THEMEDIR/scripts/snowstorm.min.js" />
+	</uninstall>
+</package-info>
