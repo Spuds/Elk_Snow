@@ -92,7 +92,7 @@ function imm_nofrillssnow(&$sub_actions)
  */
 function nofrillssnow_settings()
 {
-	global $txt, $context, $scripturl, $modSettings;
+	global $txt, $context, $scripturl;
 
 	loadlanguage('NoFrillsSnow');
 	$context[$context['admin_menu_name']]['tab_data']['tabs']['nofrillssnow']['description'] = $txt['nofrillssnow_desc'];

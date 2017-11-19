@@ -14,7 +14,7 @@
  * @version 1.0
  */
 ]]></license>
-	<install for="1.0 - 1.0.99">
+	<install for="1.0 - 1.1.99">
 		<readme parsebbc="true">readme.txt</readme>
 		<database>add_settings.php</database>
 		<license type="inline">This ElkArte addon is released under a MIT license</license>
@@ -28,14 +28,13 @@
 		<redirect url="?action=admin;area=addonsettings;sa=nofrillssnow" timeout="5000" />
 	</install>
 
-	<uninstall for="1.0 - 1.0.99">
+	<uninstall for="1.0 - 1.1.99">
 		<hook reverse="true" hook="integrate_load_theme" file="SUBSDIR/NoFrillsSnow.integration.php" function="ilt_nofrillssnow" />
 		<hook reverse="true" hook="integrate_admin_areas" file="SUBSDIR/NoFrillsSnow.integration.php" function="iaa_nofrillssnow" />
 		<hook reverse="true" hook="integrate_sa_modify_modifications" file="SUBSDIR/NoFrillsSnow.integration.php" function="imm_nofrillssnow" />
 		<remove-file name="SUBSDIR/NoFrillsSnow.integration.php" />
 		<remove-file name="THEMEDIR/scripts/snowstorm.min.js" />
-		<remove-file name="LANGUAGEDIR/english/NoFrillsSnow.french.php" />
-		<remove-file name="LANGUAGEDIR/french/NoFrillsSnow.english.php" />
-
+		<remove-file name="LANGUAGEDIR/french/NoFrillsSnow.french.php" />
+		<remove-file name="LANGUAGEDIR/english/NoFrillsSnow.english.php" />
 	</uninstall>
 </package-info>
