@@ -6,7 +6,7 @@
  * @copyright (c) 2014 Spuds
  * @license MIT public license
  *
- * @version 1.0
+ * @version 1.0.1
  */
 
 // If we have found SSI.php and we are outside of ElkArte, then we are running standalone.

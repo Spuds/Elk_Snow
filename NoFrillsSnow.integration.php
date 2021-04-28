@@ -6,7 +6,7 @@
  * @copyright (c) 2014-2021 Spuds
  * @license MIT public license
  *
- * @version 1.0
+ * @version 1.0.1
  */
 
 /**
