@@ -3,14 +3,11 @@
 /**
  * @package No Frills Snow
  * @author Spuds
- * @copyright (c) 2014 Spuds
+ * @copyright (c) 2014-2021 Spuds
  * @license MIT public license
  *
  * @version 1.0
  */
-
-if (!defined('ELK'))
-	die('No access...');
 
 /**
  * ilt_nofrillssnow()
@@ -24,11 +21,15 @@ function ilt_nofrillssnow()
 
 	// If its not enabled
 	if (empty($modSettings['nofrillssnow_enabled']))
+	{
 		return;
+	}
 
 	// If we are in an area where we never want it to snow, like Texas
 	if (in_array($context['current_action'], array('admin', 'helpadmin', 'printpage')))
+	{
 		return;
+	}
 
 	// And let it snow, let it snow, let it snow
 	addInlineJavascript('		
@@ -107,20 +108,20 @@ function nofrillssnow_settings()
 	$config_vars = array(
 		array('check', 'nofrillssnow_enabled', 'postinput' => $txt['nofrillssnow_enabled_desc']),
 		array('title', 'nofrillssnow_options'),
-			array('int', 'nofrillssnow_animationInterval', 'postinput' => $txt['nofrillssnow_default'] . '33'),
-			array('int', 'nofrillssnow_flakesMax', 'postinput' => $txt['nofrillssnow_default'] . '128'),
-			array('int', 'nofrillssnow_flakesMaxActive', 'postinput' => $txt['nofrillssnow_default'] . '64'),
-			array('check', 'nofrillssnow_followMouse'),
-			array('check', 'nofrillssnow_freezeOnBlur'),
-			array('text', 'nofrillssnow_snowColor', 'postinput' => $txt['nofrillssnow_default'] . '#99ccff'),
-			array('text', 'nofrillssnow_snowCharacter', 'postinput' => $txt['nofrillssnow_default'] . '&amp;bull;'),
-			array('int', 'nofrillssnow_flakeWidth', 'postinput' => $txt['nofrillssnow_default'] . '8'),
-			array('int', 'nofrillssnow_flakeHeight', 'postinput' => $txt['nofrillssnow_default'] . '8'),
-			array('check', 'nofrillssnow_snowStick'),
-			array('check', 'nofrillssnow_useMeltEffect'),
-			array('check', 'nofrillssnow_useTwinkleEffect'),
-			array('int', 'nofrillssnow_vMaxX', 'postinput' => $txt['nofrillssnow_default'] . '8'),
-			array('int', 'nofrillssnow_vMaxY', 'postinput' => $txt['nofrillssnow_default'] . '5'),
+		array('int', 'nofrillssnow_animationInterval', 'postinput' => $txt['nofrillssnow_default'] . '33'),
+		array('int', 'nofrillssnow_flakesMax', 'postinput' => $txt['nofrillssnow_default'] . '128'),
+		array('int', 'nofrillssnow_flakesMaxActive', 'postinput' => $txt['nofrillssnow_default'] . '64'),
+		array('check', 'nofrillssnow_followMouse'),
+		array('check', 'nofrillssnow_freezeOnBlur'),
+		array('text', 'nofrillssnow_snowColor', 'postinput' => $txt['nofrillssnow_default'] . '#99ccff'),
+		array('text', 'nofrillssnow_snowCharacter', 'postinput' => $txt['nofrillssnow_default'] . '&amp;bull;'),
+		array('int', 'nofrillssnow_flakeWidth', 'postinput' => $txt['nofrillssnow_default'] . '8'),
+		array('int', 'nofrillssnow_flakeHeight', 'postinput' => $txt['nofrillssnow_default'] . '8'),
+		array('check', 'nofrillssnow_snowStick'),
+		array('check', 'nofrillssnow_useMeltEffect'),
+		array('check', 'nofrillssnow_useTwinkleEffect'),
+		array('int', 'nofrillssnow_vMaxX', 'postinput' => $txt['nofrillssnow_default'] . '8'),
+		array('int', 'nofrillssnow_vMaxY', 'postinput' => $txt['nofrillssnow_default'] . '5'),
 	);
 
 	// Load the settings to the form class
@@ -133,23 +134,41 @@ function nofrillssnow_settings()
 
 		// Some defaults are good to have
 		if (empty($_POST['nofrillssnow_animationInterval']))
+		{
 			$_POST['nofrillssnow_animationInterval'] = 33;
+		}
 		if (empty($_POST['nofrillssnow_flakesMax']))
+		{
 			$_POST['nofrillssnow_flakesMax'] = 128;
+		}
 		if (empty($_POST['nofrillssnow_flakesMaxActive']))
+		{
 			$_POST['nofrillssnow_flakesMaxActive'] = 64;
+		}
 		if (empty($_POST['nofrillssnow_vMaxX']))
+		{
 			$_POST['nofrillssnow_vMaxX'] = 8;
+		}
 		if (empty($_POST['nofrillssnow_vMaxY']))
+		{
 			$_POST['nofrillssnow_vMaxY'] = 5;
+		}
 		if (empty($_POST['nofrillssnow_flakeWidth']))
+		{
 			$_POST['nofrillssnow_flakeWidth'] = 8;
+		}
 		if (empty($_POST['nofrillssnow_flakeHeight']))
+		{
 			$_POST['nofrillssnow_flakeHeight'] = 8;
+		}
 		if (empty($_POST['nofrillssnow_snowColor']))
+		{
 			$_POST['nofrillssnow_snowColor'] = '#99ccff';
+		}
 		if (empty($_POST['nofrillssnow_snowCharacter']))
+		{
 			$_POST['nofrillssnow_snowCharacter'] = '&bull;';
+		}
 
 		Settings_Form::save_db($config_vars);
 		redirectexit('action=admin;area=addonsettings;sa=nofrillssnow');

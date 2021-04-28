@@ -1,14 +1,14 @@
 ## NoFrills Snow for Elkarte
 
-#### License
+### License
 
 This Elkarte addon is released under a MIT public license.
 
-#### Introduction
+### Introduction
 
 This addon adds a snow storm effect to your site.
 
-Snowstorm can eat up a lot of CPU, even on modern computers, because of the number of elements being moved around the screen at once. Consider raising the animation interval, and lowering the amount of snowflakes (active and max) to help reduce CPU use.
+Snowstorm can __eat up a lot of CPU__, even on modern computers, because of the number of elements being moved around the screen at once. Consider raising the animation interval, and lowering the amount of snowflakes (active and max) to help reduce CPU use.
 
 Where supported, Snowstorm will attempt to use GPU-based hardware acceleration to draw and animate the snow. Having GPU acceleration can help in reducing CPU load.
 
@@ -19,7 +19,7 @@ The snow effect is also disabled in the Admin panel
 This addon utilizes Scott Schiller Snowstorm javascript, BSD license, [Snowstorm](http://www.schillmania.com/projects/snowstorm), it does all the work
 the addon is simply a wrapper.
 
-#### Features
+### Features
 
  - Master setting to enable or disable the snow storm
  - Set Theoretical "milliseconds per frame" measurement
